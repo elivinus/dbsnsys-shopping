@@ -2,7 +2,7 @@ FROM maven:3-openjdk-8 AS build
 RUN mkdir -p /usr/src/app/
 WORKDIR /usr/src/app/
 COPY . .
-RUN mvn clean install -DskipTests
+RUN mvn -B package --file pom.xml
 FROM openjdk:8-jre
 COPY --from=build /usr/src/app/microServicesClient/target/dbsnsys-shopping-0.0.1-SNAPSHOT.jar dbsnsys-shopping.jar
 EXPOSE 8010
