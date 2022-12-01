@@ -1,4 +1,4 @@
-FROM maven:3-openjdk-8 AS build
+FROM maven:3.5.0-jdk-8-alpine AS build
 RUN mkdir -p /usr/src/app/
 WORKDIR /usr/src/app/
 COPY . .
