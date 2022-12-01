@@ -4,6 +4,6 @@ WORKDIR /usr/src/app/
 COPY . .
 RUN mvn -B package --file pom.xml
 FROM openjdk:8-jre
-COPY --from=build /usr/src/app/microServicesClient/target/dbsnsys-shopping-0.0.1-SNAPSHOT.jar dbsnsys-shopping.jar
+COPY --from=build /usr/src/app/dbsnsys-shopping/target/dbsnsys-shopping-0.0.1-SNAPSHOT.jar dbsnsys-shopping.jar
 EXPOSE 8010
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
