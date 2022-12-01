@@ -44,9 +44,7 @@ pipeline {
                                 sh "docker tag ${NAME} ${ecrRepository}/${NAME}:latest"
                                 sh "docker push ${ecrRepository}/${NAME}:latest"
                                 sh "aws eks --region us-east-1 update-kubeconfig --name dev-dbs-cluster"
-                                sh "cd deployment"
-                                sh "ls -la"
-                                sh "kubectl apply -f shopfront-service.yaml"
+                                sh "kubectl apply -f deployment/shopfront-service.yaml"
                     }
                 }
             }
